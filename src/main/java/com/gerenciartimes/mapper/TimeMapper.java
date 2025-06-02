@@ -1,4 +1,4 @@
-package com.gerenciartimes;
+package com.gerenciartimes.mapper;
 
 import com.gerenciartimes.dto.CadastroTimeDTO;
 import com.gerenciartimes.entity.Time;

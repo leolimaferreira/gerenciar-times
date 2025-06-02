@@ -1,4 +1,9 @@
 package com.gerenciartimes.dto;
 
-public record CadastroJogadorDTO() {
+public record CadastroJogadorDTO(
+        String nome,
+        String nascimento,
+        String posicao,
+        Long timeId
+) {
 }
