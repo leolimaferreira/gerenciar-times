@@ -7,6 +7,7 @@ import com.gerenciartimes.repository.TimeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,5 +40,21 @@ public class JogadorService {
 
     public void atualizar(Jogador jogador) {
         jogadorRepository.save(jogador);
+    }
+
+    public List<Jogador> findAllById(List<Long> ids) {
+        return jogadorRepository.findAllById(ids);
+    }
+
+    public List<Jogador> buscarJogadoresPorPosicao(String posicao) {
+        return jogadorRepository.findByPosicao(posicao);
+    }
+
+    public List<Jogador> buscarJogadoresPorTime(Long timeId) {
+        return jogadorRepository.findAllByTimeId(timeId);
+    }
+
+    public List<Jogador> buscarJogadoresPorProcedure() {
+        return jogadorRepository.listarTodosViaProcedure();
     }
 }

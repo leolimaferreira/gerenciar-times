@@ -17,8 +17,19 @@ CREATE TABLE jogador (
                          nome VARCHAR(255) NOT NULL,
                          nascimento VARCHAR(50),
                          posicao VARCHAR(100),
+                         valor DOUBLE,
+                         pontuacao DOUBLE,
                          time_id BIGINT,
                          CONSTRAINT fk_time FOREIGN KEY (time_id) REFERENCES time(id)
                              ON DELETE SET NULL
-                             ON UPDATE CASCADE
+                             ON UPDATE CASCADE,
 ) ENGINE=InnoDB;
+
+DELIMITER $$
+
+CREATE PROCEDURE listarTodosJogadores()
+BEGIN
+SELECT * FROM jogador;
+END$$
+
+DELIMITER ;

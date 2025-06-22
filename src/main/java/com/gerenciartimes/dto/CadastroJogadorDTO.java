@@ -4,6 +4,9 @@ public record CadastroJogadorDTO(
         String nome,
         String nascimento,
         String posicao,
-        Long timeId
+        double valor,
+        double pontuacao,
+        Long timeId,
+        Long escalacaoId
 ) {
 }

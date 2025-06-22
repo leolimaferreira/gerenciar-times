@@ -11,6 +11,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -51,8 +52,20 @@ public class JogadorController {
         jogador.setNome(dto.nome());
         jogador.setNascimento(dto.nascimento());
         jogador.setPosicao(dto.posicao());
+        jogador.setValor(dto.valor());
+        jogador.setPontuacao(dto.pontuacao());
         jogador.setTime(timeService.buscarPorId(dto.timeId()).get());
 
         jogadorService.atualizar(jogador);
+    }
+
+    @GetMapping("/time/{timeId}")
+    public List<Jogador> buscarPorTimeId(@PathVariable Long timeId) {
+        return jogadorService.buscarJogadoresPorTime(timeId);
+    }
+
+    @GetMapping()
+    public List<Jogador> buscarTodosPorProcedure() {
+        return jogadorService.buscarJogadoresPorProcedure();
     }
 }

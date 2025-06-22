@@ -13,6 +13,7 @@ public abstract class JogadorMapper {
     @Autowired
     TimeRepository timeRepository;
 
+
     @Mapping(target = "time", expression = "java(timeRepository.findById(dto.timeId()).orElse(null))")
     public abstract Jogador toEntity(CadastroJogadorDTO dto);
 
